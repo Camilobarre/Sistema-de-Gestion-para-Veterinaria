@@ -29,7 +29,7 @@ while (ejecutar) {
     //Se crea un bloque switch el cual nos permite navegar por el programa dependiendo de la opción ingresada por el usuario 
     switch (opcionMenu) {
         case "1":
-            registrarNuevaMascota();
+            registrarMascota();
             console.log(mascotas);
             break;
         case "2":
@@ -48,7 +48,7 @@ while (ejecutar) {
             break;
         case "6":
             let nombreMascota = prompt("Ingresa el nombre de la mascota para actualizar")
-            actualizarInformacionMascota(nombreMascota);
+            actualizarMascota(nombreMascota);
             console.log(mascotas);
             break;
         case "7":
@@ -66,7 +66,7 @@ while (ejecutar) {
 }
 
 //Se declara una primera función que registra una nueva mascota
-function registrarNuevaMascota() {
+function registrarMascota() {
     let nombre = prompt("Ingresa el nombre de la mascota");
     let especie = prompt("Ingresa la especie de la mascota (perro, gato....)");
     let raza = prompt("Ingresa la raza de la mascota");
@@ -152,7 +152,7 @@ function filtrarMascotasPorPropietario(nombrePropietario) {
 
 
 //Se declara una función para actualizar datos de una mascota existente
-function actualizarInformacionMascota(nombreMascota) {
+function actualizarMascota(nombreMascota) {
     let mascotaIndex = mascotas.findIndex(function (mascota) {
         return mascota.nombre.toLowerCase() === nombreMascota.toLowerCase();
     });
