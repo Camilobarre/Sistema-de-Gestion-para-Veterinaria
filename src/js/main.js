@@ -11,52 +11,58 @@ let mascotas = [
     { nombre: "Coco", especie: "Perro", raza: "Pug", edad: 4, peso: 7, estado: "Critico", nombrePropietario: "Juan", documento: 32178456, telefono: 3146789012, correo: "elena@gmail.com" },
     { nombre: "Lucky", especie: "Gato", raza: "Bombay", edad: 2, peso: 5, estado: "Estable", nombrePropietario: "Ana", documento: 78123456, telefono: 3195678901, correo: "pablo@gmail.com" }
 ];
+console.log(mascotas);
 
+let ejecutar = true
+while (ejecutar) {
+    //Se crea un menu con las diferentes opciones para que el usuario ingrese
+    let opcionMenu = prompt(`Ingresa una opción [1-8]: 
+    [1] Registrar una nueva mascota 
+    [2] Lista de mascotas
+    [3] Lista de dueños
+    [4] Buscar mascota por nombre
+    [5] Filtrar mascotas por un mismo dueño
+    [6] Actualizar información de mascota
+    [7] Eliminar mascota
+    [8] Salir del programa`)
 
-//Se crea un menu con las diferentes opciones para que el usuario ingrese
-let opcionMenu = prompt(`Ingresa una opción [1-8]: 
-[1] Registrar una nueva mascota 
-[2] Lista de mascotas
-[3] Lista de dueños
-[4] Buscar mascota por nombre
-[5] Filtrar mascotas por un mismo dueño
-[6] Actualizar información de mascota
-[7] Eliminar mascota
-[8] Salir del programa`)
-
-//Se crea un bloque switch el cual nos permite navegar por el programa dependiendo de la opción ingresada por el usuario 
-switch (opcionMenu) {
-    case "1":
-        registrarNuevaMascota();
-        break;
-    case "2":
-        listarMascotas();
-        break;
-    case "3":
-        listarDueños();
-        break;
-    case "4":
-        let nombreABuscar = prompt("Ingresa el nombre de la mascota a buscar");
-        buscarMascotaPorNombre(nombreABuscar);
-        break;
-    case "5":
-        let nombrePropietario = prompt("Ingresa el nombre del propietario para filtrar");
-        filtrarMascotasPorPropietario(nombrePropietario);
-        break;
-    case "6":
-        let nombreMascota = prompt("Ingresa el nombre de la mascota para actualizar")
-        actualizarInformacionMascota(nombreMascota);
-        break;
-    case "7":
-        let nombreMascotaEliminar = prompt("Ingresa el nombre de la mascota para eliminar")
-        eliminarMascota(nombreMascotaEliminar);
-        break;
-    case "8":
-        console.log("Saliendo del programa...");
-        break;
-    default:
-        console.info("Ingresaste una opción equivocada")
-        break;
+    //Se crea un bloque switch el cual nos permite navegar por el programa dependiendo de la opción ingresada por el usuario 
+    switch (opcionMenu) {
+        case "1":
+            registrarNuevaMascota();
+            console.log(mascotas);
+            break;
+        case "2":
+            listarMascotas();
+            break;
+        case "3":
+            listarDueños();
+            break;
+        case "4":
+            let nombreABuscar = prompt("Ingresa el nombre de la mascota a buscar");
+            buscarMascotaPorNombre(nombreABuscar);
+            break;
+        case "5":
+            let nombrePropietario = prompt("Ingresa el nombre del propietario para filtrar");
+            filtrarMascotasPorPropietario(nombrePropietario);
+            break;
+        case "6":
+            let nombreMascota = prompt("Ingresa el nombre de la mascota para actualizar")
+            actualizarInformacionMascota(nombreMascota);
+            console.log(mascotas);
+            break;
+        case "7":
+            let nombreMascotaEliminar = prompt("Ingresa el nombre de la mascota para eliminar")
+            eliminarMascota(nombreMascotaEliminar);
+            console.log(mascotas);
+            break;
+        case "8":
+            console.log("Saliendo del programa...");
+            ejecutar = false;
+            break;
+        default:
+            console.info("Ingresaste una opción equivocada")
+    }
 }
 
 //Se declara una primera función que registra una nueva mascota
